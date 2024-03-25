@@ -1,0 +1,31 @@
+<h1>User info</h1>
+<hr>
+
+<div class="row">
+  <div class="col-4"></div>
+
+  <div class="col-8" *ngIf="userWasFound()">
+
+    <div class="card p-0 shadow" style="width: 15rem;">
+      <img [src]="currentUser()?.avatar" class="card-image-top" alt="profile picture">
+      <div class="card-body">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info">Id: {{ userId() }}</span>
+        <h5 class="card-title">Name:</h5>
+        <p class="card-text ms-2">{{ fullName() }}</p>
+        <h5 class="card-title">e-mail:</h5>
+        <p class="card-text ms-3">{{ currentUser()?.email }}</p>
+        <div class="btn-group d-flex justify-content-center">
+          <button (click)="loadUser(userId() - 1 )" class="btn btn-outline-secondary"> < Prev</button>
+          <button (click)="loadUser(userId() + 1)" class="btn btn-outline-secondary">Next > </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-8 text-info mt-3" *ngIf="!userWasFound()">
+    <h3> User not found ! </h3>
+    <button (click)="loadUser(userId() - 1 )" class="btn btn-outline-info">Return</button>
+  </div>
+
+</div>

@@ -31,7 +31,7 @@ export class CustomLabelDirective implements OnInit {
 
     if ( !this.htmlElement ) return;
 
-    this.htmlElement!.nativeElement.style.color = this._color; //! Potencialmente inseguro siempre agregar el bloque if
+    this.htmlElement!.nativeElement.style.color = this._color; //!
   }
 
   setErrorMessage(): void {
